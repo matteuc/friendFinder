@@ -1,0 +1,24 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "An Express.js app that will allow users to take a short survey and connect with the person most compatible for their personality!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matteuc/friendFinder.git"
+  },
+  "author": "Matthew Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matteuc/friendFinder/issues"
+  },
+  "homepage": "https://github.com/matteuc/friendFinder#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}
