@@ -1,0 +1,37 @@
+.home-dash {
+    height: 100%;
+    background-image: radial-gradient(rgb(172, 227, 248), rgb(70, 200, 252));
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 10vh;
+}
+
+.home-panel {
+    padding: 15% 12%;
+    border-radius: 50px;
+}
+
+.home-panel:hover {
+    background-image: radial-gradient(rgb(208, 242, 255), rgb(150, 224, 253));
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+.home-panel-text {
+    font-weight: bold;
+    color: white;
+}
+
+html, body {
+    height: 100vh;
+}
+
+body {
+    background-image: radial-gradient(rgb(97, 208, 252), rgb(78, 202, 252));
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+[data-link] {
+    cursor: pointer;
+  }
