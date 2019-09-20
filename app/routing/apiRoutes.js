@@ -64,12 +64,12 @@ module.exports = function(app) {
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
       var newFriend = req.body;
-
-      // Calculate the best match for the user based on the current database of people (i.e friendData) 
-      var match = findMatch();
-
-      friendsData.push(newFriend);
       
+      // Calculate the best match for the user based on the current database of people (i.e friendData) 
+      var match = findMatch(newFriend.answers);
+
+      friendData.push(newFriend);
+
       res.json(match);
   });
 

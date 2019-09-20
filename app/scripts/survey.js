@@ -1,4 +1,4 @@
-var questions = ["This is a question"];
+var questions = ["This is question #1", "This is question #2", "This is question #3", "This is question #4", "This is question #5"];
 
 var questionContainer = $("#questionContainer");
 var userInfoContainer = $("#userInfoContainer");
@@ -15,8 +15,8 @@ var postSurveyBtns = $("#post-survey-btns");
 var restartBtn = $("#restart-btn");
 var homeBtn = $("#home-btn");
 
-var name = $("#name");
-var photo = $("#photo");
+var name = "#name";
+var photo = "#photo";
 var nameError = $("#name-error-prompt");
 var photoError = $("#photo-error-prompt");
 
@@ -56,68 +56,68 @@ submitBtn.on("click", function (e) {
     photoError.text("");
 
     // Check if every part of the form is filled out (i.e name and photo)
-    var nameVal = name.val().trim();
-    var photoURL = photo.val().trim();
-    if (name.length === 0) {
+    var nameVal = $(name).val().trim();
+    var photoURL = $(photo).val().trim();
+    if (nameVal.length === 0) {
         // Show error message in error prompt
         nameError.text(NAME_ERROR);
         return;
     }
 
     // Check if photo exists at the provided URL
-    var image = new Image();
-    image.src = photoURL;
-    var imageExists = true;
 
-    image.onerror = function () {
+    var img = document.createElement('img');
+    img.src = photoURL;
+
+
+    img.onerror = function () {
         // image did not load
-        imageExists = false;
-    }
-
-    if (!imageExists) {
         // Show error message in error prompt
         photoError.text(IMAGE_ERROR);
         return;
     }
 
-    // Show loading while submitting the object and calculating compatibility
-    submitBtn_DEFAULT.hide();
-    submitBtn_LOADING.show();
+    // Image provided exists, proceed to rest of function
+    img.onload = function () {
 
-    var newFriend = {
-        name: nameVal,
-        profile: photoURL,
-        answers: []
+        // Show loading while submitting the object and calculating compatibility
+        submitBtn_DEFAULT.hide();
+        submitBtn_LOADING.show();
+
+        var newFriend = {
+            name: nameVal,
+            profile: photoURL,
+            answers: []
+        }
+
+        // Retrieve the answers
+        sliders.each(function () {
+            newFriend.answers.push(parseInt($(this).val()));
+        })
+
+        $.post("/api/friends", newFriend,
+            function (data) {
+                // Hide user info input and questions
+                userInfoContainer.hide();
+                questionContainer.hide();
+
+                // Reset button text but hide it from view
+                submitBtn.hide();
+                submitBtn_DEFAULT.show();
+                submitBtn_LOADING.hide();
+
+                var bestMatch = data;
+                // Display the most compatible person for the user (from variable data)
+                matchName.text(bestMatch.name);
+                matchPhoto.attr("src", bestMatch.profile)
+                matchContainer.show();
+
+                // show buttons to retake quiz or go to home page
+                postSurveyBtns.show();
+            });
+
+
     }
-
-    // Retrieve the answers
-    sliders.each(function () {
-        // var sliderValue = $(`#slider-q${questionNumber}-value`);
-        newFriend.answers.push($(this).val());
-    })
-
-    $.post("/api/friends", newFriend,
-        function (data) {
-            // Hide user info input and questions
-            userInfoContainer.hide();
-            questionContainer.hide();
-
-            // Reset button text but hide it from view
-            submitBtn.hide();
-            submitBtn_DEFAULT.show();
-            submitBtn_LOADING.hide();
-
-            var bestMatch = data;
-            // Display the most compatible person for the user (from variable data)
-            matchName.text(bestMatch.name);
-            matchPhoto.attr("src", bestMatch.profile)
-            matchContainer.show();
-            
-            // show buttons to retake quiz or go to home page
-            postSurveyBtns.show();
-        });
-
-
 })
 
 restartBtn.on("click", function (e) {
