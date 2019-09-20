@@ -15,14 +15,17 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Fluid jumbotron</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-        </div>
-    </div>
-
     <div class="container-fluid">
+        <div class="row" id="app-logo">
+            <p data-link="/" class="m-auto"><img class="img-fluid" src="../data/images/logo.png"></p>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-6 offset-md-3" id="questionContainer">
+
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-xs-12 col-md-6 offset-md-3" id="userInfoContainer">
                 <form>
@@ -37,12 +40,6 @@
                     </div>
                     <span id="photo-error-prompt"></span>
                 </form>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-12 col-md-6 offset-md-3" id="questionContainer">
-
             </div>
         </div>
 

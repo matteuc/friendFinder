@@ -14,3 +14,13 @@
 #match-photo {
     width: 80%;
 }
+
+body {
+    background-image: radial-gradient(rgb(172, 227, 248), rgb(70, 200, 252));
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+[data-link] {
+    cursor: pointer;
+  }
