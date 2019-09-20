@@ -7,6 +7,36 @@
 var friendData = require("../data/friends.js");
 
 // ===============================================================================
+// Helper Functions
+// ===============================================================================
+// Finds the difference between two arrays (sum of the difference between each element)
+// ASSUMES ARRAYS ARE OF EQUAL LENGTH
+function findDiff(arr_1, arr_2) {
+  var diff = 0;
+
+  for (var i = 0; i < arr_1.length; i++) {
+    diff += Math.abs(arr_1[i] - arr_2[i]);
+  }
+
+  return diff;
+}
+
+function findMatch(arr) {
+  var minDiff =  Infinity;
+  var bestMatch;
+
+  for(friend of friendData) {
+    var friendCompatibility = findDiff(arr, friend.answers);
+    
+    if (friendCompatibility < minDiff) {
+      minDiff = friendCompatibility;
+      bestMatch = friend;
+    }
+  }
+
+  return bestMatch;
+}
+// ===============================================================================
 // ROUTING
 // ===============================================================================
 
@@ -33,8 +63,14 @@ module.exports = function(app) {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
-      friendsData.push(req.body);
-      res.json(true);
+      var newFriend = req.body;
+
+      // Calculate the best match for the user based on the current database of people (i.e friendData) 
+      var match = findMatch();
+
+      friendsData.push(newFriend);
+      
+      res.json(match);
   });
 
 };

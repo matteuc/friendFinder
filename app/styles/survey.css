@@ -1,0 +1,8 @@
+#name-error-prompt, #photo-error-prompt {
+    font-weight: bold;
+    color: red;
+}
+
+#loading-btn-text, #post-survey-btns {
+    display: none;
+}
