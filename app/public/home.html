@@ -7,14 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/home.css">
+    <script src="https://kit.fontawesome.com/325ada46a1.js" crossorigin="anonymous"></script>
+
+
     <title>Home | FF</title>
 
 </head>
 
 <body>
+    <div class="container-fluid">
+        <div class="row">
+            <p class="m-auto"><img src="../data/images/logo.png"></p>
+        </div>
+
+        <div class="row home-dash">
+            <div data-link="/survey"
+                class="home-panel m-auto col-xs-12 col-s-6 col-md-5 offset-md-1 col-lg-4 offset-lg-2">
+                <p class="home-panel-text text-center m-auto">
+                    <i class="fas fa-search fa-5x"></i>
+                    <br>
+                    Find your friend!
+                </p>
+            </div>
+
+            <div data-link="/api/friends"
+                class="home-panel m-auto col-xs-12 col-s-6 col-md-5 offset-md-1 col-lg-4 offset-lg-2">
+                <p class=" home-panel-text text-center m-auto">
+                    <i class="fas fa-users fa-5x"></i>
+                    <br>
+                    The FF Database
+                </p>
+            </div>
+
+        </div>
+    </div>
 
 
-    
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -26,6 +55,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script src="../scripts/home.js"></script>
+
 </body>
 
 </html>
