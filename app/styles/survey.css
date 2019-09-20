@@ -3,6 +3,15 @@
     color: red;
 }
 
-#loading-btn-text, #post-survey-btns {
+#loading-btn-text, #post-survey-btns, #matchContainer {
     display: none;
+}
+
+#match-name {
+    font-weight: bold;
+}
+
+#match-photo {
+    width: 60vw;
+    height: auto;
 }

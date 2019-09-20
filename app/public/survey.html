@@ -23,19 +23,21 @@
     </div>
 
     <div class="container-fluid">
-        <div id="userInfoContainer" class="row">
-            <form>
-                <div class="form-group">
-                    <label for="name">My Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Jane Doe">
-                </div>
-                <span id="name-error-prompt"></span>
-                <div class="form-group">
-                    <label for="photo">My Profile Photo (URL)</label>
-                    <input type="text" class="form-control" id="photo" placeholder="Image URL">
-                </div>
-                <span id="photo-error-prompt"></span>
-            </form>
+        <div class="row">
+            <div class="col-xs-12 col-md-6 offset-md-3" id="userInfoContainer">
+                <form>
+                    <div class="form-group">
+                        <label for="name">My Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Jane Doe">
+                    </div>
+                    <span id="name-error-prompt"></span>
+                    <div class="form-group">
+                        <label for="photo">My Profile Photo (URL)</label>
+                        <input type="text" class="form-control" id="photo" placeholder="Image URL">
+                    </div>
+                    <span id="photo-error-prompt"></span>
+                </form>
+            </div>
         </div>
 
         <div class="row">
@@ -43,7 +45,15 @@
 
             </div>
         </div>
-        
+
+        <div class="row">
+            <div class="col-xs-12 col-md-6 offset-md-3" id="matchContainer">
+                <h2> Your best match is: <span id="match-name"></span>!</h2>
+                <img src="" id="match-photo">
+            </div>
+
+        </div>
+
         <div class="col-xs-12 text-center">
             <button type="button" id="submit-btn" class=" btn btn-primary btn-lg">
                 <div id="loading-btn-text">

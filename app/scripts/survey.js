@@ -2,12 +2,19 @@ var questions = ["This is a question"];
 
 var questionContainer = $("#questionContainer");
 var userInfoContainer = $("#userInfoContainer");
+
+var matchContainer = $("#matchContainer");
+var matchName = $("#match-name");
+var matchPhoto = $("#match-photo");
+
 var submitBtn = $("#submit-btn");
 var submitBtn_DEFAULT = $("#default-btn-text");
 var submitBtn_LOADING = $("#loading-btn-text");
+
 var postSurveyBtns = $("#post-survey-btns");
 var restartBtn = $("#restart-btn");
 var homeBtn = $("#home-btn");
+
 var name = $("#name");
 var photo = $("#photo");
 var nameError = $("#name-error-prompt");
@@ -101,8 +108,11 @@ submitBtn.on("click", function (e) {
             submitBtn_LOADING.hide();
 
             var bestMatch = data;
-            // ! Display the most compatible person for the user (from variable data)
-
+            // Display the most compatible person for the user (from variable data)
+            matchName.text(bestMatch.name);
+            matchPhoto.attr("src", bestMatch.profile)
+            matchContainer.show();
+            
             // show buttons to retake quiz or go to home page
             postSurveyBtns.show();
         });
@@ -125,7 +135,8 @@ function restartQuiz() {
     // Reset Survey questions
     resetQuestions();
 
-    // Hide user info input and questions
+    // Hide match information, user info input, and questions
+    matchContainer.hide();
     userInfoContainer.show();
     questionContainer.show();
 
