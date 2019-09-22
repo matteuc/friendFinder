@@ -26,12 +26,13 @@ questionContainer.empty();
 
 $.each(questions, function (questionNumber, questionText) {
     var questionCard = $("<div class='card slidecontainer'>");
-    questionCard.attr("data-questionNumber", questionNumber);
 
     var cardHeader = $("<div class='card-header'>");
     cardHeader.text(`Question #${questionNumber + 1}`);
 
     var cardBody = $("<div class='card-body'>");
+    cardBody.attr("data-questionNumber", questionNumber);
+
 
     var questionTitle = $("<h5 class='card-title text-center'>");
     questionTitle[0].innerText = questionText;
