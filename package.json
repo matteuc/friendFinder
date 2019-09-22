@@ -2,7 +2,7 @@
   "name": "friendfinder",
   "version": "1.0.0",
   "description": "An Express.js app that will allow users to take a short survey and connect with the person most compatible for their personality!",
-  "main": "server.js",
+  "main": "ff-server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ff-server.js"
