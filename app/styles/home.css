@@ -1,5 +1,5 @@
 .home-dash {
-    height: 100%;
+    /* height: 100%; */
     background-image: radial-gradient(rgb(172, 227, 248), rgb(70, 200, 252));
     background-repeat: no-repeat;
     background-size: cover;
@@ -27,12 +27,13 @@
 }
 
 html, body {
-    height: 100vh;
+    height: 100%;
 }
 
 body {
+    background-position: center;
     background-image: radial-gradient(rgb(97, 208, 252), rgb(78, 202, 252));
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-size: cover;
 }
 
