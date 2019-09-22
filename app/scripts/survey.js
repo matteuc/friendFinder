@@ -25,15 +25,24 @@ var IMAGE_ERROR = "Please enter a valid image URL.";
 questionContainer.empty();
 
 $.each(questions, function (questionNumber, questionText) {
-    var question = $("<div class='slidecontainer'>");
-    question.attr("data-questionNumber", questionNumber);
-    var questionTitle = $("<h3 class='text-center'>");
+    var questionCard = $("<div class='card slidecontainer'>");
+    questionCard.attr("data-questionNumber", questionNumber);
+
+    var cardHeader = $("<div class='card-header'>");
+    cardHeader.text(`Question #${questionNumber + 1}`);
+
+    var cardBody = $("<div class='card-body'>");
+
+    var questionTitle = $("<h5 class='card-title text-center'>");
     questionTitle[0].innerText = questionText;
     var slider = $('<input type="range" min="0" max="10" value="5" class="slider">');
     var sliderValue = $(`<p class="text-center"><strong><span id='slider-q${questionNumber}-value'>5</span></strong></p>`)
-    question.append(questionTitle).append("<br>").append(slider).append(sliderValue);
+    
+    cardBody.append(questionTitle).append("<br>").append(slider).append(sliderValue);
 
-    questionContainer.append(question);
+    questionCard.append(cardHeader).append(cardBody)
+    
+    questionContainer.append(questionCard).append("<br>");
 })
 
 submitBtn.show();
